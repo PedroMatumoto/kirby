@@ -1,6 +1,9 @@
 #include <Wire.h>
 #include "Adafruit_TCS34725.h"
 
+// 21 - SDA
+// 22 - SCL
+
 // Sensores
 #define SENSOR_LEFT 15
 #define SENSOR_RIGHT 4
@@ -13,7 +16,7 @@
 
 // Bombas
 #define BOMBA_1 35
-#define BOMBA_2 34
+#define BOMBA_2 18
 
 // Botões
 #define BOTAO_1 33
@@ -77,6 +80,7 @@ void motor(int vel_left, int vel_right) {
 
 int sensor_l = 0; 
 int sensor_r = 0;
+int botao_1 = LOW;
 
 void setup()
 {
@@ -84,9 +88,6 @@ void setup()
   // Sensores
   pinMode(SENSOR_LEFT, INPUT);
   pinMode(SENSOR_RIGHT, INPUT);
-
-  //LED 
-  pinMode(2,INPUT);
 
   // Motores
   pinMode(VEL_RIGHT, OUTPUT);
@@ -123,7 +124,7 @@ void loop()
 
   tcs.setInterrupt(false); // turn on LED
 
-  delay(60); // takes 50ms to read
+  delay(60); // takes 60ms to read
 
   Serial.println(digitalRead(SENSOR_LEFT));
 
@@ -135,7 +136,6 @@ void loop()
     // Verifica tanque
     // Estando OK, coloca no modo WALKING
     state = WALKING;
-    Serial.println("OIEEEE");
     // Caso NOK, fica stunado
     // while (1)
     // {
@@ -172,36 +172,40 @@ void loop()
     // Verifica tanque, se está em estado crítico
     // Se sim
     motor(0, 0);
-    Serial.println("ESTOU PARADO");
+
+    while (botao_1 == LOW) {
+      botao_1 = digitalRead(BOTAO_1);
+    }
+
+    delay(1000);
+    digitalWrite(BOMBA_2, HIGH);
     delay(5000);
+    digitalWrite(BOMBA_2, LOW);
+    delay(1000);    
+    
     state = WALKING;
-    // state = ALERT;
-    // Se não
-    // state = WALKING;
     break;
   case ROTATING:
-    digitalWrite(2,HIGH);
     // Para de andar
     // Gira
     motor(0, 0);
-    delay(1000);
+    delay(2000);
 
     if (side == LEFT)
     {
       motor(150, -150);
-      delay(5000);
+      delay(250);
       state = WALKING;
     }
     else if (side == RIGHT)
     {
       motor(-150, 150);
-      delay(5000);
+      delay(250);
       state = WALKING;
     }
-    // Anda e depois seta estado
-    // if (sensor1 ==0 && sensor2==0){
-    //   state = WALKING;
-    // }
+
+    motor(150, 150);
+    delay(1000);
     break;
   case ALERT:
     tcs.getRGB(&red, &green, &blue);
