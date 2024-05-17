@@ -8,6 +8,7 @@
   - [Materiais](#materiais)
 - [Funcionamento](#funcionamento)
   - [Máquina de estados](#máquina-de-estados)
+    - [Estados](#estados)
 - [Autores](#autores)
 
 
@@ -29,7 +30,22 @@ O robô é montado a partir:
 
 # Funcionamento
 
+- **I**: Estado inicial, verifica se o tanque está OK para seguir
+- **A**: Estado andando/seguindo em linha até encontrar com a cor verde
+- **P**: Estado parado, o sensor de cor leu verde e agora está interagindo com o usuário
+- **C**: Estado crítico, o tanque atingiu nível crítico, anda até achar o ponto inicial (azul)
+
 ## Máquina de estados
+
+<p align="center">
+  <img width="910" alt="maquina-estados" src="https://github.com/enzosakamoto/kirby/assets/98707474/b72dbbcb-96b6-489b-b1f6-7fdcb84cacf5">
+</p>
+
+### Estados
+- **I**: Estado inicial
+- **A**: Estado andando/seguindo
+- **P**: Estado parado
+- **C**: Estado crítico
 
 # Autores
 
