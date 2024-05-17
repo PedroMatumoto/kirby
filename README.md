@@ -9,6 +9,7 @@
 - [Funcionamento](#funcionamento)
   - [Máquina de estados](#máquina-de-estados)
     - [Estados](#estados)
+- [Testes](#testes)
 - [Autores](#autores)
 
 
@@ -30,10 +31,13 @@ O robô é montado a partir:
 
 # Funcionamento
 
-- **I**: Estado inicial, verifica se o tanque está OK para seguir
-- **A**: Estado andando/seguindo em linha até encontrar com a cor verde
-- **P**: Estado parado, o sensor de cor leu verde e agora está interagindo com o usuário
-- **C**: Estado crítico, o tanque atingiu nível crítico, anda até achar o ponto inicial (azul)
+O funcionamento do robô é baseado em uma **máquina de estados** que controla o comportamento do robô conforme a leitura do **sensor infravermelho** e do **sensor de cor**.
+
+Primeiramente, o robô deve ser calibrado para que o sensor de cor consiga identificar a linha no chão. Após a calibração, o robô deve seguir a linha até encontrar a cor verde, onde ele deve parar e interagir com o usuário.
+
+Com a interação do usuário a partir dos botões, o robô deve servir o usuário com o líquido correspondente ao botão selecionado (dois líquidos até o momento). Caso o tanque atinja um **nível crítico**, o robô deve retornar ao ponto inicial (cor azul) e reiniciar o processo.
+
+Os **displays OLED** são utilizados de forma estética para simular o olho do personagem Kirby.
 
 ## Máquina de estados
 
@@ -46,6 +50,21 @@ O robô é montado a partir:
 - **A**: Estado andando/seguindo
 - **P**: Estado parado
 - **C**: Estado crítico
+
+# Testes
+
+## Dia 15/05/2024
+
+- **Teste de calibração do sensor de cor**
+  - O sensor de cor foi calibrado para identificar a cor verde
+- **Teste de calibração do sensor infravermelho**
+  - O sensor infravermelho foi calibrado para identificar a linha preta no chão e iniciar o estado de girar
+- **Teste de botão**
+  - O botão foi testado para identificar a interação do usuário
+- **Teste de bomba**
+  - A bomba foi testada para identificar a interação do robô com o usuário e bombear o líquido
+
+
 
 # Autores
 
