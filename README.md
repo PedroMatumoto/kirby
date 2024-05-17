@@ -66,6 +66,10 @@ Os **displays OLED** são utilizados de forma estética para simular o olho do p
 
 
 
+https://github.com/enzosakamoto/kirby/assets/98707474/40ef3852-a57a-4a14-8359-391d45e8bc85
+
+
+
 # Autores
 
 - [Antonio Ferrite](https://github.com/tom-ferrite)
