@@ -5,7 +5,7 @@
 ## Sumário
 
 - [Requisitos](#requisitos)
-- [Protótipo](#protótipo)
+- [Escopo](#escopo)
   - [Materiais](#materiais)
 - [Funcionamento](#funcionamento)
   - [Máquina de estados](#máquina-de-estados)
@@ -25,9 +25,15 @@
 | 6   | Utilizar padrões de conexão (I2C, SPI) vistos em aula                       | Técnico   |
 | 7   | Interagir com o usuário com botões                                          | Técnico   |
 
-# Protótipo
+# Escopo
 
 O projeto consiste em um robô autônomo que deve **seguir uma linha no chão**, **mudar de estado conforme a leitura de cores do sensor** e **interagir com o usuário através de botões**. O robô deve ser capaz de carregar dois tipos de líquidos em seus tanques e servir o usuário conforme a interação.
+
+## Diagrama de blocos
+
+<p align="center">
+  <img width="910" alt="diagrama_blocos" src="assets/diagrama_blocos.png">
+</p>
 
 ## Materiais
 
