@@ -61,6 +61,34 @@ O robô é montado a partir:
 - 2 mini bombas
 - 2 displays **OLED** I2C
 - 3 botões
+- Filamento ABS
+
+## Modelagem mecânica
+
+Para o projeto, precisamos de certa resistência térmica por parte do material diretamente em contato com a bebida(gelada ou quente), portanto o material ABS foi utilizada por ter essa propriedade.
+Os containeres da bebida ficaram apartados da estrutura, para evitar contato com componentes eletrônicos. O circuito elétrico fica próximo dos motores, assim diminuindo necessidade de cabeamento desnecessariamente grande. Como o enfoque do projeto não era mecânico, a base para locomoção foi comprada pronta, evitando gasto de tempo para o modelamento de motores, engrenagens para redução e preocupações com transmissão. Toda a estrutura foi baseada no personagem da Cultura Geek Kirby, protagonista de uma franquia da Nintendo.
+
+<p align="center">
+  <img width="910" alt="diagrama_blocos" src="
+  https://www.nintendo.com/eu/media/images/10_share_images/portals_3/2x1_KirbyHub_image1600w.jpg">
+</p>
+
+## Modelamento financeiro
+
+Os componentes do projeto foi financiado inteiramente pelos integrantes do grupo, utilizando-se de materiais previamente obtidos e contribuição para manufatura da placa eletrônica impressa do Instituto Mauá de Tecnologia. Para fins de teste, os equipamentos do Instituto Mauá de Tecnologia como multímetro, fonte e protoboard foram utilizados.<br>
+| Item | Preço Unitário (R$) | Quantidade | Preço Total (R$) |
+|------------------------------------------------------|---------------------|------------|------------------|
+| Sensor de Cor RGB com Filtro IR - TCS34725 | 28,40 | 1 | 28,40 |
+| Célula de Carga 5Kg - Sensor de Peso | 17,90 | 2 | 35,80 |
+| Chave DIP Switch 1 Via | 2,50 | 1 | 2,50 |
+| Push Button (Chave Táctil) 12x12x7.3mm | 0,90 | 4 | 3,60 |
+| Mini Bomba Submersível p/ Água | 12,90 | 2 | 25,80 |
+| Módulo Conversor 24bit Hx711 p/ Célula De Carga | 8,90 | 2 | 17,80 |
+| Sensor de Obstáculos Reflexivo Infravermelho | 7,90 | 2 | 15,80 |
+| Display OLED 128x64 0.96" I2C - Pinos Soldados | 34,90 | 2 | 69,80 |
+| Kit Chassi 2WD Robô para Arduino (Modelo 2) | 79,90 | 1 | 79,90 |
+| Mini Ponte H Dupla L298N | 7,90 | 1 | 7,90 |
+| Capa Redonda para Push Button 12x12x7.3mm (Preto) | 0,50 | 4 | 2,00 |
 
 # Funcionamento
 
@@ -73,6 +101,8 @@ Com a interação do usuário a partir dos botões, o robô deve servir o usuár
 Os **displays OLED** são utilizados de forma estética para simular o olho do personagem Kirby.
 
 ## Depuração
+
+No projeto, a linguagem C/C++ foi utilizada para a aplicação, por sua eficiência nesse tipo de caso de uso, bem como a riqueza de material sobre esse tipo de projeto.
 
 A Arduino IDE e as seguintes bibliotecas foram utilizadas para depurar o código
 
