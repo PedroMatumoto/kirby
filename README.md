@@ -6,6 +6,8 @@
 
 - [Requisitos](#requisitos)
 - [Escopo](#escopo)
+  - [Diagrama de blocos](#diagrama-de-blocos)
+  - [Tecnologias](#tecnologias-e-conceitos)
   - [Materiais](#materiais)
 - [Funcionamento](#funcionamento)
   - [Máquina de estados](#máquina-de-estados)
@@ -35,6 +37,14 @@ O projeto consiste em um robô autônomo que deve **seguir uma linha no chão**,
   <img width="910" alt="diagrama_blocos" src="assets/diagrama_blocos.png">
 </p>
 
+## Tecnologias e conceitos
+
+- I2C (Comunicação com os displays e sensores)
+- Transistores (MOSFET/Ponte H)
+- PWM (Controle do motor)
+- Autômatos (Lógica de funcionamento)
+- PIO (Entrada e saída do microcontrolador)
+
 ## Materiais
 
 O robô é montado a partir:
@@ -61,6 +71,14 @@ Primeiramente, o robô deve ser calibrado para que o sensor de cor consiga ident
 Com a interação do usuário a partir dos botões, o robô deve servir o usuário com o líquido correspondente ao botão selecionado (dois líquidos até o momento). Caso o tanque atinja um **nível crítico**, o robô deve retornar ao ponto inicial (cor azul) e reiniciar o processo.
 
 Os **displays OLED** são utilizados de forma estética para simular o olho do personagem Kirby.
+
+## Depuração
+
+A Arduino IDE e as seguintes bibliotecas foram utilizadas para depurar o código
+
+- Wire.h
+- Adafruit_TCS34725.h (Sensor de cor)
+- HX711.h (Módulo conversor de peso)
 
 ## Máquina de estados
 
