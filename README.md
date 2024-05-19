@@ -40,13 +40,17 @@ O projeto consiste em um robô autônomo que deve **seguir uma linha no chão**,
 O robô é montado a partir:
 
 - 1 microcontrolador **ESP32**
-- 1 sensor de linha **QTR-8RC**
+- 2 células de Carga de 5kg
+- 2 conversores **HX711**
+- 2 MOSFETs **IRLZ44N**
+- 1 sensor de cor **TCS34725**
+- 2 sensor de linha **QTR-8RC**
 - 1 chassi de acrílico
-- 1 ponte H
+- 1 ponte H L298N Mini
 - 2 motores **3-6 V**
 - 2 mini bombas
-- 2 displays **OLED**
-- 2 cargas de peso **5kg**
+- 2 displays **OLED** I2C
+- 3 botões
 
 # Funcionamento
 
