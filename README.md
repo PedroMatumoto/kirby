@@ -69,8 +69,7 @@ Para o projeto, precisamos de certa resistência térmica por parte do material 
 Os containeres da bebida ficaram apartados da estrutura, para evitar contato com componentes eletrônicos. O circuito elétrico fica próximo dos motores, assim diminuindo necessidade de cabeamento desnecessariamente grande. Como o enfoque do projeto não era mecânico, a base para locomoção foi comprada pronta, evitando gasto de tempo para o modelamento de motores, engrenagens para redução e preocupações com transmissão. Toda a estrutura foi baseada no personagem da Cultura Geek Kirby, protagonista de uma franquia da Nintendo.
 
 <p align="center">
-  <img width="910" alt="kirby" src="
-  assets/banner_kirby.jpg">
+  <img width="910" alt="kirby" src="assets\banner_kirby.jpg">
 </p>
 
 ## Modelamento financeiro
