@@ -9,6 +9,8 @@
   - [Diagrama de blocos](#diagrama-de-blocos)
   - [Tecnologias](#tecnologias-e-conceitos)
   - [Materiais](#materiais)
+  - [Modelagem mecânica](#modelagem-mecânica)
+  - [Modelagem Financeira](#modelamento-financeiro)
 - [Funcionamento](#funcionamento)
   - [Máquina de estados](#máquina-de-estados)
     - [Estados](#estados)
