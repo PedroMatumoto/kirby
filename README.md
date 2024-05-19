@@ -1,6 +1,6 @@
 # Kirby
 
-**Kirby** é o projeto semestral da disciplina **Microcontroladores e Sistemas Embarcados** (EEN251) do **Instituto Mauá de Tecnologia** (IMT) ministrada pelos professores [Sergio Ribeiro Augusto](https://www.linkedin.com/in/sergio-ribeiro-augusto-258a9ba0/?originalSubdomain=br) e [Rodrigo França](https://www.linkedin.com/in/rodrigo-fran%C3%A7a-847872b1/).<BR>
+**Kirby** é o projeto semestral da disciplina **Microcontroladores e Sistemas Embarcados** (EEN251) do **Instituto Mauá de Tecnologia** (IMT), ministrada pelos professores [Sergio Ribeiro Augusto](https://www.linkedin.com/in/sergio-ribeiro-augusto-258a9ba0/?originalSubdomain=br) e [Rodrigo França](https://www.linkedin.com/in/rodrigo-fran%C3%A7a-847872b1/).<BR>
 
 ## Sumário
 
@@ -10,7 +10,7 @@
   - [Tecnologias](#tecnologias-e-conceitos)
   - [Materiais](#materiais)
   - [Modelagem mecânica](#modelagem-mecânica)
-  - [Modelagem Financeira](#modelamento-financeiro)
+  - [Modelagem financeira](#modelamento-financeiro)
 - [Funcionamento](#funcionamento)
   - [Máquina de estados](#máquina-de-estados)
     - [Estados](#estados)
@@ -27,7 +27,7 @@
 | 4   | Verificar o abastecimento dos tanques para evitar uso incorreto dos motores | Técnico   |
 | 5   | Utilizar um microcontrolador                                                | Técnico   |
 | 6   | Utilizar padrões de conexão (I2C, SPI) vistos em aula                       | Técnico   |
-| 7   | Interagir com o usuário com botões                                          | Técnico   |
+| 7   | Interagir com o usuário por meio de botões                                  | Técnico   |
 
 # Escopo
 
@@ -49,14 +49,14 @@ O projeto consiste em um robô autônomo que deve **seguir uma linha no chão**,
 
 ## Materiais
 
-O robô é montado a partir:
+O robô é montado a partir dos seguintes materiais:
 
 - 1 microcontrolador **ESP32**
 - 2 células de Carga de 5kg
 - 2 conversores **HX711**
 - 2 MOSFETs **IRLZ44N**
 - 1 sensor de cor **TCS34725**
-- 2 sensor de linha **QTR-8RC**
+- 2 sensores de linha **QTR-8RC**
 - 1 chassi de acrílico
 - 1 ponte H L298N Mini
 - 2 motores **3-6 V**
@@ -67,8 +67,8 @@ O robô é montado a partir:
 
 ## Modelagem mecânica
 
-Para o projeto, precisamos de certa resistência térmica por parte do material diretamente em contato com a bebida(gelada ou quente), portanto o material ABS foi utilizada por ter essa propriedade.
-Os containeres da bebida ficaram apartados da estrutura, para evitar contato com componentes eletrônicos. O circuito elétrico fica próximo dos motores, assim diminuindo necessidade de cabeamento desnecessariamente grande. Como o enfoque do projeto não era mecânico, a base para locomoção foi comprada pronta, evitando gasto de tempo para o modelamento de motores, engrenagens para redução e preocupações com transmissão. Toda a estrutura foi baseada no personagem da Cultura Geek Kirby, protagonista de uma franquia da Nintendo.
+O projeto, requere certo nível de resistência térmica por parte do material diretamente em contato com a bebida (gelada ou quente), o que nos direcionou para o uso do material ABS, que tem essa propriedade.
+Os containeres da bebida ficaram apartados da estrutura para evitar contato com componentes eletrônicos. O circuito elétrico fica próximo dos motores, diminuindo a necessidade de cabeamento extenso. Como o enfoque do projeto não era mecânico, a base para locomoção foi comprada pronta, maximizando o uso do tempo que seria gasto com o modelamento de motores, engrenagens para redução e preocupações com transmissão. Toda a estrutura foi baseada no personagem da Cultura Geek Kirby, protagonista de uma franquia da Nintendo.
 
 <p align="center">
   <img width="910" alt="kirby" src="assets\banner_kirby.jpg">
@@ -76,7 +76,7 @@ Os containeres da bebida ficaram apartados da estrutura, para evitar contato com
 
 ## Modelamento financeiro
 
-Os componentes do projeto foi financiado inteiramente pelos integrantes do grupo, utilizando-se de materiais previamente obtidos e contribuição para manufatura da placa eletrônica impressa do Instituto Mauá de Tecnologia. Para fins de teste, os equipamentos do Instituto Mauá de Tecnologia como multímetro, fonte e protoboard foram utilizados.<br>
+Os componentes do projeto foram financiados inteiramente pelos integrantes do grupo, utilizando-se de materiais previamente obtidos e contribuição para manufatura da placa eletrônica impressa do Instituto Mauá de Tecnologia. Para fins de teste, os equipamentos do Instituto Mauá de Tecnologia como multímetro, fonte e protoboard foram utilizados.<br>
 | Item | Preço Unitário (R$) | Quantidade | Preço Total (R$) |
 |------------------------------------------------------|---------------------|------------|------------------|
 | Sensor de Cor RGB com Filtro IR - TCS34725 | 28,40 | 1 | 28,40 |
@@ -103,7 +103,7 @@ Os **displays OLED** são utilizados de forma estética para simular o olho do p
 
 ## Depuração
 
-No projeto, a linguagem C/C++ foi utilizada para a aplicação, por sua eficiência nesse tipo de caso de uso, bem como a riqueza de material sobre esse tipo de projeto.
+No projeto, a linguagem C/C++ foi utilizada para a aplicação tanto por sua eficiência nesse tipo de caso de uso, quanto pela riqueza de material existente sobre esse tipo de projeto.
 
 A Arduino IDE e as seguintes bibliotecas foram utilizadas para depurar o código
 
