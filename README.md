@@ -1,9 +1,10 @@
 # Kirby
 
-**Kirby** é o projeto semestral da disciplina **Microcontroladores e Sistemas Embarcados** (EEN251) do **Instituto Mauá de Tecnologia** (IMT) ministrada pelos professores [Sergio Ribeiro Augusto](https://www.linkedin.com/in/sergio-ribeiro-augusto-258a9ba0/?originalSubdomain=br) e [Rodrigo França](https://www.linkedin.com/in/rodrigo-fran%C3%A7a-847872b1/).
-
+**Kirby** é o projeto semestral da disciplina **Microcontroladores e Sistemas Embarcados** (EEN251) do **Instituto Mauá de Tecnologia** (IMT) ministrada pelos professores [Sergio Ribeiro Augusto](https://www.linkedin.com/in/sergio-ribeiro-augusto-258a9ba0/?originalSubdomain=br) e [Rodrigo França](https://www.linkedin.com/in/rodrigo-fran%C3%A7a-847872b1/).<BR>
 
 ## Sumário
+
+- [Requisitos](#requisitos)
 - [Protótipo](#protótipo)
   - [Materiais](#materiais)
 - [Funcionamento](#funcionamento)
@@ -12,6 +13,17 @@
 - [Testes](#testes)
 - [Autores](#autores)
 
+# Requisitos
+
+| id  | requisito                                                                   | tipo      |
+| --- | --------------------------------------------------------------------------- | --------- |
+| 1   | Utilizar sensores analógicos ou digitais                                    | Técnico   |
+| 2   | Servir bebidas aos clientes                                                 | Funcional |
+| 3   | Seguir um trajeto no chão                                                   | Funcional |
+| 4   | Verificar o abastecimento dos tanques para evitar uso incorreto dos motores | Técnico   |
+| 5   | Utilizar um microcontrolador                                                | Técnico   |
+| 6   | Utilizar padrões de conexão (I2C, SPI) vistos em aula                       | Técnico   |
+| 7   | Interagir com o usuário com botões                                          | Técnico   |
 
 # Protótipo
 
@@ -20,6 +32,7 @@ O projeto consiste em um robô autônomo que deve **seguir uma linha no chão**,
 ## Materiais
 
 O robô é montado a partir:
+
 - 1 microcontrolador **ESP32**
 - 1 sensor de linha **QTR-8RC**
 - 1 chassi de acrílico
@@ -46,6 +59,7 @@ Os **displays OLED** são utilizados de forma estética para simular o olho do p
 </p>
 
 ### Estados
+
 - **I**: Estado inicial
 - **A**: Estado andando/seguindo
 - **P**: Estado parado
@@ -64,11 +78,7 @@ Os **displays OLED** são utilizados de forma estética para simular o olho do p
 - **Teste de bomba**
   - A bomba foi testada para identificar a interação do robô com o usuário e bombear o líquido
 
-
-
 https://github.com/enzosakamoto/kirby/assets/98707474/40ef3852-a57a-4a14-8359-391d45e8bc85
-
-
 
 # Autores
 
