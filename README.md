@@ -145,5 +145,5 @@ https://github.com/enzosakamoto/kirby/assets/98707474/40ef3852-a57a-4a14-8359-39
 - [Antonio Ferrite](https://github.com/tom-ferrite)
 - [Enzo Sakamoto](https://github.com/enzosakamoto)
 - [Flavio Murata](https://github.com/flaviomurata)
-- [Maria Fernanda Pinho](https://github.com/mafepinho)
+- [Maria Fernanda Pinho Garcia](https://github.com/mafepinho)
 - [Pedro Matumoto](https://github.com/pedromatumoto)
