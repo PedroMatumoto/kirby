@@ -152,7 +152,7 @@ void loop()
     }
 
     // MOTOR!
-    motor(150, 150);
+    motor(90, 90);
 
     // Sensores infra
     if (digitalRead(SENSOR_LEFT) == 0)
@@ -193,18 +193,18 @@ void loop()
 
     if (side == LEFT)
     {
-      motor(150, -150);
+      motor(90, -90);
       delay(250);
       state = WALKING;
     }
     else if (side == RIGHT)
     {
-      motor(-150, 150);
+      motor(-90, 90);
       delay(250);
       state = WALKING;
     }
 
-    motor(150, 150);
+    motor(90, 90);
     delay(1000);
     break;
   case ALERT:
