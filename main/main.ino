@@ -15,7 +15,7 @@
 #define DIR_LEFT 26
 
 // Bombas
-#define BOMBA_1 35
+#define BOMBA_1 19
 #define BOMBA_2 18
 
 // Botões
