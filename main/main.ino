@@ -1,8 +1,18 @@
 #include <Wire.h>
 #include "Adafruit_TCS34725.h"
+#include "HX711.h"
 
 // 21 - SDA
 // 22 - SCL
+
+// Sensores peso
+#define DT1 35
+#define SCK1 34
+#define DT2 39
+#define SCK2 36
+
+HX711 balanca_1;
+HX711 balanca_2;
 
 // Sensores
 #define SENSOR_LEFT 15
@@ -46,6 +56,28 @@ enum Side
   RIGHT
 };
 
+float calcular(){
+  long soma = 0;
+  int num_leituras = 32;
+  float peso_objeto;
+ 
+  // Aguarda a usuário digitar o peso do objeto conhecido
+  Serial.println("Por favor, insira o peso do objeto em quilogramas:");
+  while (!Serial.available()) {
+  }
+  peso_objeto = Serial.parseFloat();
+  Serial.print("Peso do objeto inserido: ");
+  Serial.print(peso_objeto, 3);
+  Serial.println(" kg");
+ 
+  // Realiza 32 leitura para calcular o valor da escala de calibração
+  Serial.println("Realizando 32 leituras para calcular a média:");
+  for (int i = 0; i < num_leituras; i++) {
+    soma += balanca_1.get_value(10); 
+    delay(100);
+  }
+}
+
 // Estados iniciais
 State state = IDLE;
 Side side = LEFT;
@@ -81,9 +113,26 @@ void motor(int vel_left, int vel_right) {
 int sensor_l = 0; 
 int sensor_r = 0;
 int botao_1 = LOW;
+int botao_2 = LOW;
+float escala = 0;
+float peso_min = 0.1000;
+long soma = 0;
+float media = 0;
+int num_leituras = 32;
 
 void setup()
 {
+  int num_leituras = 32;
+
+  balanca_1.begin(DT1,SCK1);
+  balanca_2.begin(DT2,SCK2);
+  
+  balanca_1.set_scale();
+  balanca_1.tare(20);
+  delay(2000);
+  escala = calcular();
+
+
   
   // Sensores
   pinMode(SENSOR_LEFT, INPUT);
@@ -117,6 +166,8 @@ void setup()
   }
 }
 
+
+
 void loop()
 {
   
@@ -133,9 +184,40 @@ void loop()
   switch (state)
   {
   case IDLE:
+    soma = 0;
+    media = 0;
+    for (int i = 0; i < num_leituras; i++) {
+    soma += balanca_1.get_value(10); 
+    delay(100);
+    }
+    media = soma / (float)num_leituras;
+    media=media/escala;
+    if (media < peso_min){
+      state = IDLE;
+    }
+    else{
+      soma = 0;
+      media = 0;
+      for (int i = 0; i < num_leituras; i++) {
+      soma += balanca_2.get_value(10); 
+      delay(100);
+      }
+      media = soma / (float)num_leituras;
+      media=media/escala;
+      if (media < peso_min){
+        state = IDLE;
+      }
+      else{
+        state = WALKING;
+      }
+    }
+    
+
+    
+
     // Verifica tanque
     // Estando OK, coloca no modo WALKING
-    state = WALKING;
+    
     // Caso NOK, fica stunado
     // while (1)
     // {
@@ -170,6 +252,7 @@ void loop()
     // Para para servir
     // Depois que servir, volta a andar
     // Verifica tanque, se está em estado crítico
+
     // Se sim
     motor(0, 0);
 
@@ -182,8 +265,34 @@ void loop()
     delay(5000);
     digitalWrite(BOMBA_2, LOW);
     delay(1000);    
-    
-    state = WALKING;
+
+        soma = 0;
+    media = 0;
+    for (int i = 0; i < num_leituras; i++) {
+    soma += balanca_1.get_value(10); 
+    delay(100);
+    }
+    media = soma / (float)num_leituras;
+    media=media/escala;
+    if (media < peso_min){
+      state = ALERT;
+    }
+    else{
+      soma = 0;
+      media = 0;
+      for (int i = 0; i < num_leituras; i++) {
+      soma += balanca_2.get_value(10); 
+      delay(100);
+      }
+      media = soma / (float)num_leituras;
+      media=media/escala;
+      if (media < peso_min){
+        state = ALERT;
+      }
+      else{
+        state = WALKING;
+      }
+    }
     break;
   case ROTATING:
     // Para de andar
@@ -211,11 +320,26 @@ void loop()
     tcs.getRGB(&red, &green, &blue);
     // MOTOR
     // Verifica curvas
+    motor(90, 90);
+
+    // Sensores infra
+    
     // Verifica se chegou no azul
     if (blue > 130)
     {
       state = IDLE;
     }
+    if (digitalRead(SENSOR_LEFT) == 0)
+    {
+      state = ROTATING;
+      side = LEFT;
+    }
+    else if (digitalRead(SENSOR_RIGHT) == 0)
+    {
+      state = ROTATING;
+      side = RIGHT;
+    }
     break;
+    
   }
 }
