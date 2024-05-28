@@ -1,18 +1,12 @@
 #include <Wire.h>
 #include "Adafruit_TCS34725.h"
-#include "HX711.h"
 
 // 21 - SDA
 // 22 - SCL
 
 // Sensores peso
-#define DT1 35
-#define SCK1 34
-#define DT2 39
-#define SCK2 36
-
-HX711 balanca_1;
-HX711 balanca_2;
+#define NVL1 35
+#define NVL2 34
 
 // Sensores
 #define SENSOR_LEFT 15
@@ -56,27 +50,6 @@ enum Side
   RIGHT
 };
 
-float calcular(){
-  long soma = 0;
-  int num_leituras = 32;
-  float peso_objeto;
- 
-  // Aguarda a usuário digitar o peso do objeto conhecido
-  Serial.println("Por favor, insira o peso do objeto em quilogramas:");
-  while (!Serial.available()) {
-  }
-  peso_objeto = Serial.parseFloat();
-  Serial.print("Peso do objeto inserido: ");
-  Serial.print(peso_objeto, 3);
-  Serial.println(" kg");
- 
-  // Realiza 32 leitura para calcular o valor da escala de calibração
-  Serial.println("Realizando 32 leituras para calcular a média:");
-  for (int i = 0; i < num_leituras; i++) {
-    soma += balanca_1.get_value(10); 
-    delay(100);
-  }
-}
 
 // Estados iniciais
 State state = IDLE;
@@ -114,26 +87,17 @@ int sensor_l = 0;
 int sensor_r = 0;
 int botao_1 = LOW;
 int botao_2 = LOW;
-float escala = 0;
-float peso_min = 0.1000;
-long soma = 0;
-float media = 0;
-int num_leituras = 32;
+float nivel_atual_1 = 0;
+float nivel_atual_2 = 0;
+// voltar aqui
+float nivel_minimo = 0;
 
 void setup()
 {
-  int num_leituras = 32;
+  // Sensores de nível  
+  pinMode(NVL1, INPUT);
+  pinMode(NVL2, INPUT);
 
-  balanca_1.begin(DT1,SCK1);
-  balanca_2.begin(DT2,SCK2);
-  
-  balanca_1.set_scale();
-  balanca_1.tare(20);
-  delay(2000);
-  escala = calcular();
-
-
-  
   // Sensores
   pinMode(SENSOR_LEFT, INPUT);
   pinMode(SENSOR_RIGHT, INPUT);
@@ -177,39 +141,20 @@ void loop()
 
   delay(60); // takes 60ms to read
 
-  Serial.println(digitalRead(SENSOR_LEFT));
+  tcs.getRGB(&red, &green, &blue);
 
-   tcs.getRGB(&red, &green, &blue);
+  nivel_atual_1 = analogRead(NVL1);
+  nivel_atual_2 = analogRead(NVL2);
+
 
   switch (state)
   {
   case IDLE:
-    soma = 0;
-    media = 0;
-    for (int i = 0; i < num_leituras; i++) {
-    soma += balanca_1.get_value(10); 
-    delay(100);
-    }
-    media = soma / (float)num_leituras;
-    media=media/escala;
-    if (media < peso_min){
+    if (nivel_atual_1 < nivel_minimo || nivel_atual_2 <nivel_minimo){
       state = IDLE;
     }
     else{
-      soma = 0;
-      media = 0;
-      for (int i = 0; i < num_leituras; i++) {
-      soma += balanca_2.get_value(10); 
-      delay(100);
-      }
-      media = soma / (float)num_leituras;
-      media=media/escala;
-      if (media < peso_min){
-        state = IDLE;
-      }
-      else{
-        state = WALKING;
-      }
+      state = WALKING;
     }
     
 
@@ -256,42 +201,35 @@ void loop()
     // Se sim
     motor(0, 0);
 
-    while (botao_1 == LOW) {
+    while (botao_1 == LOW && botao_2 == LOW) {
       botao_1 = digitalRead(BOTAO_1);
+      botao_2 = digitalRead(BOTAO_2);
     }
 
-    delay(1000);
-    digitalWrite(BOMBA_2, HIGH);
-    delay(5000);
-    digitalWrite(BOMBA_2, LOW);
-    delay(1000);    
-
-        soma = 0;
-    media = 0;
-    for (int i = 0; i < num_leituras; i++) {
-    soma += balanca_1.get_value(10); 
-    delay(100);
+    if (botao_1 == HIGH)
+    {
+      digitalWrite(BOMBA_1, HIGH);
+      delay(5000);
+      digitalWrite(BOMBA_1, LOW);
     }
-    media = soma / (float)num_leituras;
-    media=media/escala;
-    if (media < peso_min){
+    else if (botao_2 == HIGH)
+    {
+      digitalWrite(BOMBA_2, HIGH);
+      delay(5000);
+      digitalWrite(BOMBA_2, LOW);
+    }
+
+    botao_1 = LOW;
+    botao_2 = LOW;
+
+    nivel_atual_1 = analogRead(NVL1);
+    nivel_atual_2 = analogRead(NVL2);
+
+    if (nivel_atual_1 < nivel_minimo || nivel_atual_2 <nivel_minimo){
       state = ALERT;
     }
     else{
-      soma = 0;
-      media = 0;
-      for (int i = 0; i < num_leituras; i++) {
-      soma += balanca_2.get_value(10); 
-      delay(100);
-      }
-      media = soma / (float)num_leituras;
-      media=media/escala;
-      if (media < peso_min){
-        state = ALERT;
-      }
-      else{
-        state = WALKING;
-      }
+      state = WALKING;
     }
     break;
   case ROTATING:
