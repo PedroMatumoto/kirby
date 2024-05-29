@@ -5,8 +5,8 @@
 // 22 - SCL
 
 // Sensores peso
-#define NVL1 35
-#define NVL2 34
+#define NVL1 13
+#define NVL2 25
 
 // Sensores
 #define SENSOR_LEFT 15
@@ -90,7 +90,8 @@ int botao_2 = LOW;
 float nivel_atual_1 = 0;
 float nivel_atual_2 = 0;
 // voltar aqui
-float nivel_minimo = 0;
+float nivel_minimo_13 = 700;
+float nivel_minimo_25 = 280;
 
 void setup()
 {
@@ -150,7 +151,7 @@ void loop()
   switch (state)
   {
   case IDLE:
-    if (nivel_atual_1 < nivel_minimo || nivel_atual_2 <nivel_minimo){
+    if (nivel_atual_1 < nivel_minimo_13 || nivel_atual_2 <nivel_minimo_25){
       state = IDLE;
     }
     else{
@@ -225,7 +226,7 @@ void loop()
     nivel_atual_1 = analogRead(NVL1);
     nivel_atual_2 = analogRead(NVL2);
 
-    if (nivel_atual_1 < nivel_minimo || nivel_atual_2 <nivel_minimo){
+    if (nivel_atual_1 < nivel_minimo_13 || nivel_atual_2 < nivel_minimo_25 ){
       state = ALERT;
     }
     else{
