@@ -16,11 +16,13 @@
   - [Máquina de estados](#máquina-de-estados)
     - [Estados](#estados)
 - [Testes](#testes)
+- [Ressalvas](#ressalvas)
 - [Vídeo de funcionamento](#vídeo-de-funcionamento)
   - [Funcioamento simples](#seguidor-básico)
   - [Funcionamento do sensor de cor](#sensor-de-cor)
   - [Funcionamento com a parte de baixo](#parte-de-baixo)
   - [Funcionamento completo](#completo)
+- [Foto da equipe](#foto-da-equipe)
 - [Autores](#autores)
 
 # Requisitos
@@ -70,6 +72,9 @@ O robô é montado a partir dos seguintes materiais:
 - 2 displays **OLED** I2C
 - 3 botões
 - Filamento ABS
+- 2 Pilhas recarregáveis do Lítio
+- Suporte para a bateria
+- Regulador de tensão (LM2596 DC-DC)
 
 ## Modelagem eletrônica
 
@@ -159,6 +164,10 @@ A Arduino IDE e as seguintes bibliotecas foram utilizadas para depurar o código
 
 https://github.com/enzosakamoto/kirby/assets/98707474/40ef3852-a57a-4a14-8359-391d45e8bc85
 
+# Ressalvas
+
+Com o decorrer do projeto, acabamos tendo que mudar algumas coisas do escopo do projeto inicial, devido a dificuldade de reorganizar dentro do espaço pequeno do Kirby. Então, retiramos a feature de dispenser e o projeto acabou funcionando mais como um robô para transferir coisas dentro de si. Ele suporta agora até 10 volts na ponte H e para a ESP.
+
 # Vídeo de funcionamento
 
 ## Seguidor básico
@@ -176,6 +185,12 @@ https://github.com/PedroMatumoto/kirby/assets/85521574/ca2573db-44cb-4a38-9400-5
 ## Completo
 
 https://github.com/PedroMatumoto/kirby/assets/85521574/d881d26d-c9eb-4c51-b02c-57bc47560678
+
+## Foto da equipe
+
+<p align="center">
+  <img width="910" alt="kirby" src="assets\FOTO_EQUIPE.jpg">
+</p>
 
 # Autores
 
