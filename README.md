@@ -155,12 +155,10 @@ A Arduino IDE e as seguintes bibliotecas foram utilizadas para depurar o código
 https://github.com/enzosakamoto/kirby/assets/98707474/40ef3852-a57a-4a14-8359-391d45e8bc85
 
 # Vídeo de funcionamento
+https://github.com/PedroMatumoto/kirby/assets/85521574/aaf1a16d-d58f-403c-81cf-5f88884271a1
 
-# Vídeo de funcionamento
 
-<video controls>
-  <source src="assets/Vídeo do WhatsApp de 2024-06-05 à(s) 10.31.15_55190736.mp4" type="video/mp4">
-</video>
+
 
 # Autores
 
