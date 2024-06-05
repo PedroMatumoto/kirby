@@ -157,7 +157,19 @@ https://github.com/enzosakamoto/kirby/assets/98707474/40ef3852-a57a-4a14-8359-39
 
 # Vídeo de funcionamento
 
+## Seguidor básico
 https://github.com/PedroMatumoto/kirby/assets/85521574/aaf1a16d-d58f-403c-81cf-5f88884271a1
+
+## Sensor de cor
+https://github.com/PedroMatumoto/kirby/assets/85521574/dffed084-cc13-473b-ba64-888f88831c52
+
+## Parte de baixo
+https://github.com/PedroMatumoto/kirby/assets/85521574/ca2573db-44cb-4a38-9400-57ee9a864a09
+
+## Completo
+https://github.com/PedroMatumoto/kirby/assets/85521574/d881d26d-c9eb-4c51-b02c-57bc47560678
+
+
 
 # Autores
 
