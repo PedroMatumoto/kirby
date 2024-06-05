@@ -16,6 +16,7 @@
   - [Máquina de estados](#máquina-de-estados)
     - [Estados](#estados)
 - [Testes](#testes)
+- [Vídeo de funcionamento](#vídeo-de-funcionamento)
 - [Autores](#autores)
 
 # Requisitos
@@ -155,10 +156,8 @@ A Arduino IDE e as seguintes bibliotecas foram utilizadas para depurar o código
 https://github.com/enzosakamoto/kirby/assets/98707474/40ef3852-a57a-4a14-8359-391d45e8bc85
 
 # Vídeo de funcionamento
+
 https://github.com/PedroMatumoto/kirby/assets/85521574/aaf1a16d-d58f-403c-81cf-5f88884271a1
-
-
-
 
 # Autores
 
