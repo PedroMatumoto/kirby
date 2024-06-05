@@ -194,8 +194,8 @@ https://github.com/PedroMatumoto/kirby/assets/85521574/d881d26d-c9eb-4c51-b02c-5
 
 # Autores
 
-- [Antonio Ferrite](https://github.com/tom-ferrite)
-- [Enzo Sakamoto](https://github.com/enzosakamoto)
-- [Flavio Murata](https://github.com/flaviomurata)
-- [Maria Fernanda Pinho](https://github.com/mafepinho)
-- [Pedro Matumoto](https://github.com/pedromatumoto)
+- [Antonio Ferrite 21.00663-6](https://github.com/tom-ferrite) 
+- [Enzo Sakamoto 21.00210-0](https://github.com/enzosakamoto) 
+- [Flavio Murata 21.01192-3](https://github.com/flaviomurata)
+- [Maria Fernanda Pinho 21.00256-8](https://github.com/mafepinho)
+- [Pedro Matumoto 21.00784-5](https://github.com/pedromatumoto)
